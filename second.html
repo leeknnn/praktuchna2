@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+</head>
+<body>
+    <h2>Простий калькулятор</h2>
+    <button onclick="calculate()">Обчислити</button>
+
+    <script>
+        function calculate() {
+            let a = parseFloat(prompt("Введіть перше число:"));
+            let b = parseFloat(prompt("Введіть друге число:"));
+            let operation = prompt("Введіть операцію (+, -, *, /):");
+
+            if (isNaN(a) || isNaN(b)) {
+                alert("Помилка! Введено некоректне число.");
+                return;
+            }
+
+            let result;
+            switch (operation) {
+                case "+":
+                    result = a + b;
+                    break;
+                case "-":
+                    result = a - b;
+                    break;
+                case "*":
+                    result = a * b;
+                    break;
+                case "/":
+                    if (b === 0) {
+                        alert("Помилка! Ділення на нуль неможливе.");
+                        return;
+                    }
+                    result = a / b;
+                    break;
+                default:
+                    alert("Помилка! Невірна операція.");
+                    return;
+            }
+
+            alert(`Результат: ${result}`);
+        }
+    </script>
+</body>
+</html>
